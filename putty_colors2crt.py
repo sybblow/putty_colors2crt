@@ -1,5 +1,5 @@
 from __future__ import print_function
-from itertools import izip_longest, imap
+from itertools import izip_longest, imap, ifilter
 import sys
 
 
@@ -12,9 +12,12 @@ r = imap(
         int(t[1][6:]),
         ['%02x' % int(e) for e in t[3].split(',')] + ['00']
     ),
-    imap(
-        lambda l: (l.split('"')),
-        open(filename, 'r')
+    ifilter(
+        lambda t: len(t) > 3,
+        imap(
+            lambda l: (l.split('"')),
+            open(filename, 'r')
+        )
     )
 )
 r = [(color2pos[num - 6], c) for num, c in r if num >= 6]
