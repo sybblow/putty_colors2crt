@@ -30,12 +30,7 @@ group_size = 8
 map(
     print,
     imap(
-        lambda l: ' '.join(
-            reduce(
-                lambda x, y: x + y,
-                l
-            )
-        ),
+        lambda l: ' '.join(reduce(list.__add__, l)),
         # a recipe take from "grouper" in this link:
         # https://docs.python.org/2/library/itertools.html#recipes.
         izip_longest(
