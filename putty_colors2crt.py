@@ -2,7 +2,6 @@ from __future__ import print_function
 from itertools import izip_longest, imap, ifilter
 import sys
 
-
 color2pos = [8, 0, 1, 9, 2, 10, 3, 11, 4, 12, 5, 13, 6, 14, 7, 15]
 
 
@@ -27,8 +26,8 @@ def main():
     filename = sys.argv[1] if len(sys.argv) >= 2 else 'E:\\terminal-sexy.txt'
 
     output_colors = [None] * 16
-    for cnum, color in putty_import(filename):
-        output_colors[color2pos[cnum]] = color
+    for num, color in putty_import(filename):
+        output_colors[color2pos[num]] = color
 
     group_size = 8
     map(
